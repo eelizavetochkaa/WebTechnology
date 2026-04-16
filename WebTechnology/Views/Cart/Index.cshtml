@@ -1,0 +1,60 @@
+﻿@using WebTechnology.Models
+@model List<CartItem>
+
+@{
+    ViewData["Title"] = "Корзина";
+}
+
+<h1>Корзина</h1>
+
+@if (!Model.Any())
+{
+    <p>Ваша корзина пуста</p>
+    <a href="/Products" class="btn btn-primary">Перейти к товарам</a>
+}
+else
+{
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="border-bottom: 1px solid #ddd; padding: 10px; text-align: left;">Товар</th>
+                <th style="border-bottom: 1px solid #ddd; padding: 10px; text-align: left;">Цена</th>
+                <th style="border-bottom: 1px solid #ddd; padding: 10px; text-align: left;">Количество</th>
+                <th style="border-bottom: 1px solid #ddd; padding: 10px; text-align: left;">Сумма</th>
+                <th style="border-bottom: 1px solid #ddd; padding: 10px; text-align: left;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="padding: 10px;">@item.ProductName</td>
+                    <td style="padding: 10px;">@item.Price ₽</td>
+                    <td style="padding: 10px;">
+                        <form asp-action="UpdateQuantity" method="post" style="display: inline;">
+                            <input type="hidden" name="id" value="@item.ProductId" />
+                            <input type="number" name="quantity" value="@item.Quantity" min="1" style="width: 60px;" onchange="this.form.submit()" />
+                        </form>
+                    </td>
+                    <td style="padding: 10px;">@item.Total ₽</td>
+                    <td style="padding: 10px;">
+                        <a href="/Cart/Remove?id=@item.ProductId" style="color: red; text-decoration: none;">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="padding: 10px; text-align: right; font-weight: bold;">Итого:</td>
+                <td style="padding: 10px; font-weight: bold;">@Model.Sum(x => x.Total) ₽</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div style="margin-top: 20px; text-align: right;">
+        <a href="/Products" style="background-color: #EBDFCE; padding: 10px 20px; text-decoration: none; color: black; border-radius: 5px;">Продолжить покупки</a>
+        <a href="/Cart/Clear" style="background-color: #dc3545; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-left: 10px;">Очистить корзину</a>
+        <button style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-left: 10px;">Оформить заказ</button>
+    </div>
+}

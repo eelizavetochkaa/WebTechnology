@@ -1,27 +1,40 @@
 ﻿@{
-    ViewData["Title"] = "Каталог";
+    ViewData["Title"] = "Каталог товаров";
 }
 
-<h1>Список товаров</h1>
+<h1 style="text-align: center; margin: 30px 0;">Каталог товаров</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Товар 1</h5>
-                <p class="card-text">Описание товара 1</p>
-                <p class="card-text fw-bold">1000 ₽</p>
-                <a href="#" class="btn btn-primary">Купить</a>
+<div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+    <div class="col-md-4" style="width: 300px;">
+        <div class="card" style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden;">
+            <div class="card-body" style="padding: 15px;">
+                <h5 class="card-title">Кольцо с бриллиантом</h5>
+                <p class="card-text">Изящное кольцо из белого золота</p>
+                <p class="card-text fw-bold" style="font-size: 20px; color: #333;">150 000 ₽</p>
+                <a href="/Cart/Add?id=1&name=Кольцо с бриллиантом&price=150000" class="btn btn-primary" style="background-color: #EBDFCE; color: black; border: none; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 5px;">Купить</a>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Товар 2</h5>
-                <p class="card-text">Описание товара 2</p>
-                <p class="card-text fw-bold">2000 ₽</p>
-                <a href="#" class="btn btn-primary">Купить</a>
+
+    <div class="col-md-4" style="width: 300px;">
+        <div class="card" style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden;">
+            <div class="card-body" style="padding: 15px;">
+                <h5 class="card-title">Серьги с жемчугом</h5>
+                <p class="card-text">Элегантные серьги в классическом стиле</p>
+                <p class="card-text fw-bold" style="font-size: 20px; color: #333;">85 000 ₽</p>
+                <a href="/Cart/Add?id=2&name=Серьги с жемчугом&price=85000" class="btn btn-primary" style="background-color: #EBDFCE; color: black; border: none; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 5px;">Купить</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4" style="width: 300px;">
+        <div class="card" style="border: 1px solid #ddd; border-radius: 10px; overflow: hidden;">
+            <div class="card-body" style="padding: 15px;">
+                <h5 class="card-title">Подвеска с сапфиром</h5>
+                <p class="card-text">Нежная подвеска на цепочке</p>
+                <p class="card-text fw-bold" style="font-size: 20px; color: #333;">120 000 ₽</p>
+                <a href="/Cart/Add?id=3&name=Подвеска с сапфиром&price=120000" class="btn btn-primary" style="background-color: #EBDFCE; color: black; border: none; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 5px;">Купить</a>
             </div>
         </div>
     </div>
